@@ -1,0 +1,58 @@
+{
+  "name": "contracts",
+  "version": "0.0.1",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "prepack": "npm build",
+    "test": "hardhat test",
+    "clean": "hardhat clean",
+    "build": "hardhat compile",
+    "test:logs": "hardhat test --logs",
+    "watch": "hardhat watch compilation",
+    "lint:ts": "eslint --max-warnings 0",
+    "lint": "yarn fmt:sol && yarn lint:ts",
+    "precommit": "yarn fmt:sol && yarn lint",
+    "lint:sol": "solhint 'contracts/**/*.sol",
+    "deploy:network": "hardhat deploy --network",
+    "fmt:sol": "prettier 'contracts/**/*.sol' -w",
+    "size": "hardhat size-contracts --show-stack-traces",
+    "coverage": "hardhat coverage --testfiles ./test/src",
+    "verify:network": "hardhat verify --network <contract-address>",
+    "docs:init": "node_modules/.bin/doxity init --target 'doxity' --src 'contracts/*' --dir 'pages' --out './docs'",
+    "docs:compile": "node_modules/.bin/doxity compile",
+    "docs:develop": "node_modules/.bin/doxity develop",
+    "docs:publish": "node_modules/.bin/doxity publish",
+    "docs:build": "node_modules/.bin/doxity build",
+    "doc": "scripts/doc.sh"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "dotenv": "^16.3.1",
+    "solc": "0.8.21",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@nomiclabs/hardhat-ganache": "^2.0.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.6",
+    "@openeth/truffle-typings": "^0.0.6",
+    "@openzeppelin/contracts": "^5.0.0",
+    "@types/mocha": "^10.0.3",
+    "hardhat-abi-exporter": "^2.10.1",
+    "hardhat-contract-sizer": "^2.10.0",
+    "hardhat-deploy": "^0.11.43",
+    "hardhat-gas-reporter": "^1.0.9",
+    "hardhat-tracer": "^2.6.0",
+    "hardhat-watcher": "^2.5.0",
+    "solidity-coverage": "^0.8.5",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.3.2",
+    "typescript": "^5.2.2"
+  }
+}
